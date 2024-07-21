@@ -6,3 +6,7 @@ export default function getNeighborhoodsList() {
       return this.sanFranciscoNeighborhoods;
     };
   }
+
+const neighborhoodsList = new getNeighborhoodsList();
+const res = neighborhoodsList.addNeighborhood('Noe Valley');
+console.log(res);
