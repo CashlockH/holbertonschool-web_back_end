@@ -1,0 +1,1 @@
+Readme file of es6 classes
