@@ -1,4 +1,4 @@
-function updateUniqueItems(map){
+export default function updateUniqueItems(map){
     if (typeof map !== 'object')
         throw Error("Cannot process should be thrown")
     map.forEach((value, key) => {
