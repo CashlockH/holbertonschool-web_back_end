@@ -1,7 +1,8 @@
-import handleProfileSignup from "./3-all";
+import handleProfileSignup from "./6-final-user";
 
 test('handleProfileSignup returns the right array', async () => {
   const queue = await handleProfileSignup('John', 'Doe', 'Gerald.jpg');
+
   expect(queue).toEqual([
     {
       status: 'fulfilled',
