@@ -1,6 +1,6 @@
 export default function cleanSet(set_obj, startString){
-    text = ""
-    for (element of set_obj)
+    let text = ""
+    for (const element of set_obj)
     {
         if (element.startsWith(startString) && startString)
         {
