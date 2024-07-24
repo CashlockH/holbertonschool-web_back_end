@@ -4,5 +4,3 @@ export default function handleProfileSignup(){
     .then((response) => console.log(`${response[0].body} ${response[1].firstName} ${response[1].lastName}`))
     .catch("Signup system offline")
 }
-
-handleProfileSignup();
