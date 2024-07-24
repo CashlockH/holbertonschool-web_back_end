@@ -14,5 +14,3 @@ export default function cleanSet(set_obj, startString){
     }
     return text
 }
-
-console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']),));
