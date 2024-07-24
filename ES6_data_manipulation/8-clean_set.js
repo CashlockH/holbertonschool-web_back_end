@@ -1,14 +1,18 @@
 export default function cleanSet(set_obj, startString){
     let text = ""
-    for (const element of set_obj)
-    {
-        if (startString && element.startsWith(startString))
+    if (startString && typeof startString == "string"){
+        for (const element of set_obj)
         {
-            if (text)
-                text = text.concat("-", element.slice(startString.length))
-            else
-                text = text.concat("", element.slice(startString.length))
+            if (element.startsWith(startString))
+            {
+                if (text)
+                    text = text.concat("-", element.slice(startString.length))
+                else
+                    text = text.concat("", element.slice(startString.length))
+            }
         }
     }
     return text
 }
+
+console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']),));
