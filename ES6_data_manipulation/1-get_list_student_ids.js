@@ -6,5 +6,3 @@ export default function getListStudentIds(array_obj){
         return array_obj.map((obj) => obj['id'])
     }
 }
-
-console.log(getListStudentIds(null));
