@@ -1,0 +1,15 @@
+import handleProfileSignup from "./3-all";
+
+test('handleProfileSignup returns the right array', async () => {
+  const queue = await handleProfileSignup('John', 'Doe', 'Gerald.jpg');
+  expect(queue).toEqual([
+    {
+      status: 'fulfilled',
+      value: { firstName: 'John', lastName: 'Doe' }
+    },
+    {
+      status: 'rejected',
+      value: 'Gerald.jpg cannot be processed'
+    }
+  ]);
+});
