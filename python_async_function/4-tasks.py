@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """task_wait_n funciton module"""
 import asyncio
+from typing import List
 task_wait_random = __import__('3-tasks').task_wait_random
 
 
-async def task_wait_n(n: int, max_delay: int):
+async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """calls task_wait_random function n times and return its values sorted"""
     return_list = []
     result_list = []
