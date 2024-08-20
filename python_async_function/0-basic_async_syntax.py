@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+"""This module holds  wait_random asynchronous function."""
 import asyncio
 import random
-"""This module holds  wait_random asynchronous function."""
 
 
 async def wait_random(max_delay: int = 10) -> float:
