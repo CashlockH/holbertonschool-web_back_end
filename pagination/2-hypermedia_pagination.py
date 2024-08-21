@@ -52,7 +52,7 @@ class Server:
             total_page = (
                 row_counter/len(data)
                 if len(data) != 0
-                else row_counter/page_size + 1)
+                else row_counter/page_size)
         return {
             'page_size': len(data),
             'page': page,
