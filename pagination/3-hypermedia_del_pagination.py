@@ -57,5 +57,5 @@ class Server:
             'index': index,
             'next_index': next_index,
             'page_size': page_size,
-            'data': return_list
+            'data': return_list,
         }
