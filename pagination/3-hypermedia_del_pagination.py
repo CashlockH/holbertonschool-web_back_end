@@ -37,13 +37,11 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(
-            self, index: int = None,
-            page_size: int = 10) -> Dict:
-        """Get values at specific index return it as dictionary
-        with some attributes"""
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """Return a dictionary with pagination details, resilient to deletions."""
         
         assert isinstance(index, int) and 0 <= index < len(self.indexed_dataset())
+
         data = self.indexed_dataset()
         return_list = []
         current_index = index
@@ -54,6 +52,7 @@ class Server:
             current_index += 1
 
         next_index = current_index if current_index < len(data) else None
+
         return {
             'index': index,
             'next_index': next_index,
