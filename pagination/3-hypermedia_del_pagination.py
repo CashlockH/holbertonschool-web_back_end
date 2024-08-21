@@ -38,7 +38,8 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        """Return a dictionary with pagination details, resilient to deletions."""
+        """Get values at specific index return it as dictionary
+        with some attributes"""
         
         assert isinstance(index, int) and 0 <= index < len(self.indexed_dataset())
 
