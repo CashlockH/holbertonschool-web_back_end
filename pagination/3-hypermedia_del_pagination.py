@@ -41,19 +41,19 @@ class Server:
 
     def get_hyper_index(
             self, index: Optional[int] = None,
-            page_size: int = 10) -> Dict[str, Union[int, List[List]]]:
+            page_size: int = 10) -> Dict[str, Union[int, List[List], None]]:
         """Get values at specific index return it as dictionary
         with some attributes"""
-        assert isinstance(index, int) and 0 <= index < len(self.indexed_dataset())
+        assert isinstance(index, int) and (
+            0 <= index < len(self.indexed_dataset()))
         data = self.indexed_dataset()
         return_list: List[List] = []
-        next_index = index + page_size
-        for element in data.items():
-            if len(return_list) == page_size:
-                next_index = element[0]
-                break
-            if element[0] >= index:
-                return_list.append(element[1])
+        current_index = index
+        while len(return_list) < page_size and current_index < len(data):
+            if current_index in data:
+                return_list.append(data[current_index])
+            current_index += 1
+        next_index = current_index if current_index < len(data) else None
         return {
                 'index': index,
                 'data': return_list,
