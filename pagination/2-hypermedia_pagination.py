@@ -50,14 +50,14 @@ class Server:
                 row_counter += 1
             data = self.get_page(page, page_size)
             total_page = (
-                row_counter/len(data)
+                row_counter//len(data)
                 if len(data) != 0
-                else row_counter/page_size)
+                else row_counter//page_size)
         return {
             'page_size': len(data),
             'page': page,
             'data': data,
             'next_page': page + 1 if page < total_page else None,
             'prev_page': page - 1 if page > 1 else None,
-            'total_pages': int(total_page)
+            'total_pages': total_page
         }
