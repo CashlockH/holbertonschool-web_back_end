@@ -37,8 +37,9 @@ class Server:
                 if i > start and i <= end:
                     return_list.append(row)
         return return_list
-    
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[int, List[float]]]:
+
+    def get_hyper(self, page: int = 1,
+                  page_size: int = 10) -> Dict[str, Union[int, List[List], None]]:
         """Collec attributes of page into dictionary,
         and return it"""
         with open('Popular_Baby_Names.csv') as file:
@@ -47,7 +48,10 @@ class Server:
             for row in reader:
                 row_counter += 1
             data = self.get_page(page, page_size)
-            total_page = row_counter/len(data) if len(data) != 0 else row_counter/page_size + 1
+            total_page = (
+                row_counter/len(data)
+                if len(data) != 0
+                else row_counter/page_size + 1)
         return {
             'page_size': len(data),
             'page': page,
