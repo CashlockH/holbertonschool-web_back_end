@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-""""""
+"""Server class module."""
 import csv
 import math
 from typing import List
 index_range = __import__('0-simple_helper_function').index_range
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
@@ -25,13 +26,14 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            assert isinstance(page, int) and page > 0
-            assert isinstance(page_size, int) and page_size > 0
-            start, end = index_range(page, page_size)
-            return_list = []
-            with open('Popular_Baby_Names.csv') as csvfile:
-                reader = csv.reader(csvfile)
-                for i, row in enumerate(reader):
-                     if i > start and i <= end:
-                          return_list.append(row)
-            return return_list
+        """Get dataset between range and return it as a list."""
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+        start, end = index_range(page, page_size)
+        return_list = []
+        with open('Popular_Baby_Names.csv') as csvfile:
+            reader = csv.reader(csvfile)
+            for i, row in enumerate(reader):
+                if i > start and i <= end:
+                    return_list.append(row)
+        return return_list
