@@ -5,7 +5,7 @@ Deletion-resilient hypermedia pagination
 
 import csv
 import math
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Union
 
 
 class Server:
@@ -39,7 +39,9 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = 0, page_size: int = 10) -> Dict:
+    def get_hyper_index(
+            self, index: int = 0,
+            page_size: int = 10) -> Dict[str, Union[int, List[List]]]:
         """Get values at specific index return it as dictionary
         with some attributes"""
         assert index < len(self.indexed_dataset())
