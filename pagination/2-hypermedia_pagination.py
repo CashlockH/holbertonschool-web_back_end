@@ -40,7 +40,7 @@ class Server:
 
     def get_hyper(self, page: int = 1,
                   page_size: int = 10) -> Dict[str,
-                                               Union[int, List[List], None]]:
+                                               Union[int, None, List[List]]]:
         """Collec attributes of page into dictionary,
         and return it"""
         with open('Popular_Baby_Names.csv') as file:
