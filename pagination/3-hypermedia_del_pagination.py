@@ -40,11 +40,11 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(
-            self, index: int = 0,
+            self, index: Optional[int] = None,
             page_size: int = 10) -> Dict[str, Union[int, List[List]]]:
         """Get values at specific index return it as dictionary
         with some attributes"""
-        assert index < len(self.indexed_dataset())
+        assert isinstance(index, int) and index < len(self.indexed_dataset())
         data = self.indexed_dataset()
         return_list: List[List] = []
         next_index = index + page_size
