@@ -44,7 +44,7 @@ class Server:
             page_size: int = 10) -> Dict[str, Union[int, List[List]]]:
         """Get values at specific index return it as dictionary
         with some attributes"""
-        assert isinstance(index, int) and 0 < index < len(self.indexed_dataset())
+        assert isinstance(index, int) and 0 <= index < len(self.indexed_dataset())
         data = self.indexed_dataset()
         return_list: List[List] = []
         next_index = index + page_size
