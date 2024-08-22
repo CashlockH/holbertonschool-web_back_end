@@ -22,7 +22,7 @@ def get_stats():
         logs += 1
         if document['method'] in methods:
             methods[document['method']] += 1
-        if document['path'] == '/status':
+        if document['path'] == '/status' and document['method'] == 'GET':
             status_check += 1
     print(
         """{} logs
