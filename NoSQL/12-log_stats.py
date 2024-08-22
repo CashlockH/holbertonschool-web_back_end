@@ -22,7 +22,7 @@ def get_stats(collection):
         path = document.get('path')
         if method in methods:
             methods[method] += 1
-        if path == '/status':
+        if method == 'GET' and path == '/status':
             status_check += 1
 
     print("{} logs".format(logs))
