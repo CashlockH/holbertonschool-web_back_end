@@ -24,22 +24,11 @@ def get_stats():
             methods[document['method']] += 1
         if document['path'] == '/status' and document['method'] == 'GET':
             status_check += 1
-    print(
-        """{} logs
-Methods:
-    method GET: {}
-    method POST: {}
-    method PUT: {}
-    method PATCH: {}
-    method DELETE: {}
-{} status check""".format(logs,
-                          methods['GET'],
-                          methods['POST'],
-                          methods['PUT'],
-                          methods['PATCH'],
-                          methods['DELETE'],
-                          status_check)
-    )
+    print("{}".format(logs))
+    print("Methods:")
+    for key, value in methods.items():
+        print("\tmethod {}: {}".format(key, value))
+    print("{} status check".format(status_check))
 
 
 if __name__ == '__main__':
