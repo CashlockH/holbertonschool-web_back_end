@@ -30,8 +30,8 @@ def get_stats():
 
     print("{} logs".format(logs))
     print("Methods:")
-    for key, value in methods.items():
-        print("\tmethod {}: {}".format(key, value))
+    for key in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']:
+        print("\tmethod {}: {}".format(key, methods[key]))
     print("{} status check".format(status_check))
 
 
