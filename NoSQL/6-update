@@ -1,0 +1,5 @@
+// adds new attributes to document with the name of Holberton school
+db.school.update(
+    {"name": "Holberton school"},
+    {$set: {"address": "972 Mission street"}}
+)
