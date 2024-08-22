@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""a Python script that provides some stats about Nginx logs stored in MongoDB"""
+"""a Python script that provides some stats about
+Nginx logs stored in MongoDB"""
 from pymongo import MongoClient
 client = MongoClient()
 db = client.logs
@@ -7,6 +8,7 @@ collection = db.nginx
 
 
 def get_stats():
+    """gets all documents and display it in valid format"""
     documents = collection.find()
     methods = {
         'GET': 0,
@@ -23,18 +25,22 @@ def get_stats():
         if document['path'] == '/status':
             status_check += 1
     print(
-        """
-            {} logs
-            Methods:
-                method GET: {}
-                method POST: {}
-                method PUT: {}
-                method PATCH: {}
-                method DELETE: {}
-            {} status check
-        """.format(logs, methods['GET'], methods['POST'], methods['PUT'], methods['PATCH'], methods['DELETE'], status_check)
+        """{} logs
+Methods:
+    method GET: {}
+    method POST: {}
+    method PUT: {}
+    method PATCH: {}
+    method DELETE: {}
+{} status check""".format(logs,
+                          methods['GET'],
+                          methods['POST'],
+                          methods['PUT'],
+                          methods['PATCH'],
+                          methods['DELETE'],
+                          status_check)
     )
 
 
-
-get_stats()
+if __name__ == '__main__':
+    get_stats()
