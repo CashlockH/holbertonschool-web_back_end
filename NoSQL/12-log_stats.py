@@ -4,11 +4,8 @@ Nginx logs stored in MongoDB"""
 from pymongo import MongoClient
 
 
-def get_stats():
+def get_stats(collection):
     """Gets all documents and displays them in a valid format"""
-    client = MongoClient()
-    db = client.logs
-    collection = db.nginx
 
     methods = {
         'GET': 0,
@@ -36,4 +33,7 @@ def get_stats():
 
 
 if __name__ == '__main__':
-    get_stats()
+    client = MongoClient("mongodb://127.0.0.1:27017")
+    db = client.logs
+    collection = db.nginx
+    get_stats(collection)
