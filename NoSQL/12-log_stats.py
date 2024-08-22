@@ -3,6 +3,7 @@
 Nginx logs stored in MongoDB"""
 from pymongo import MongoClient
 
+
 def get_stats():
     """Gets all documents and displays them in a valid format"""
     client = MongoClient()
@@ -32,6 +33,7 @@ def get_stats():
     for key, value in methods.items():
         print("\tmethod {}: {}".format(key, value))
     print("{} status check".format(status_check))
+
 
 if __name__ == '__main__':
     get_stats()
