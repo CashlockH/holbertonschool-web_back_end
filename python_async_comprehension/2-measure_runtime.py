@@ -5,7 +5,7 @@ import time
 async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
-async def measure_runtime():
+async def measure_runtime() -> float:
     """Call async_comprehension funciton 4 times with
     the help of gather mehtod, calculate total runtime,
     and return it"""
