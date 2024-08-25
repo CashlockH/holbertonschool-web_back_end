@@ -10,6 +10,9 @@ async def measure_runtime():
     the help of gather mehtod, calculate total runtime,
     and return it"""
     start = time.perf_counter()
-    await asyncio.gather(async_comprehension(), async_comprehension(), async_comprehension(), async_comprehension())
+    await asyncio.gather(async_comprehension(),
+                         async_comprehension(),
+                         async_comprehension(),
+                         async_comprehension())
     end = time.perf_counter() - start
     return end
