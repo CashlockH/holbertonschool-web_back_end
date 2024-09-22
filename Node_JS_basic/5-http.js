@@ -25,7 +25,7 @@ async function countStudents(path) {
 
         return result
     } catch (error) {
-        throw new Error('Cannot load the database');
+        return 'This is the list of our students\nCannot load the database';
     }
 }
 const app = http.createServer(async (req, res) => {
@@ -39,8 +39,7 @@ const app = http.createServer(async (req, res) => {
             const student = await countStudents(args[0]);
             res.end(student);
         } catch (error) {
-            const student = await countStudents('database.csv');
-            res.end(student);
+            res.statusCode = 500
         }
     }
 });
