@@ -1,11 +1,11 @@
-import { createServer } from 'node:http';
-const hostname = '127.0.0.1';
-const port = 1245;
-const app = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello Holberton School!');
+const http = require('node:http');
+
+const app = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello Holberton School!\n');
 });
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(1245, () => {
+    console.log('Server running at http://127.0.0.1:1245/');
 });
+module.exports = app;
