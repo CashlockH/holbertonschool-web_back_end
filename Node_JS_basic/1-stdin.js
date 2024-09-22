@@ -1,13 +1,13 @@
-console.log("Welcome to Holberton School, what is your name?")
+console.log('Welcome to Holberton School, what is your name?');
 process.stdin.setEncoding('utf8');
 
-process.stdin.on('readable', function() {
-  var name = process.stdin.read();
+process.stdin.on('readable', function input() {
+  const name = process.stdin.read();
   if (name !== null) {
-    process.stdout.write('Your name is: ' + name);
+    process.stdout.write(`Your name is: ${name}`);
   }
 });
 
-process.stdin.on('end', function() {
-  process.stdout.write('This important software is now closing' + '\n');
+process.stdin.on('end', function end() {
+  process.stdout.write('This important software is now closing\n');
 });
