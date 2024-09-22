@@ -7,7 +7,7 @@ class StudentsController {
             const students = await readDatabase(dbFileName);
             res.status(200).send(students);
         } catch (error) {
-            res.status(500).send('Error reading database');
+            res.status(500).send('Cannot load the database');
         }
     }
     static async getAllStudentsByMajor(req, res, dbFileName) {
