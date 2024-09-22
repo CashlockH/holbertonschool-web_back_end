@@ -1,9 +1,8 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-async function readDatabase(filePath) {
-    const fullPath = path.join(__dirname, '../', filePath);
-    const data = await fs.readFile(fullPath, 'utf8');
+async function readDatabase(path) {
+    const data = await fs.readFile(path, 'utf8');
     const lines = data.split('\n');
     
     let cs_count = 0;
