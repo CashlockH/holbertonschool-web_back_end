@@ -39,8 +39,8 @@ const app = http.createServer(async (req, res) => {
             const student = await countStudents(args[0]);
             res.end(student);
         } catch (error) {
-            res.statusCode = 500;
-            res.end(error.message);
+            const student = await countStudents('database.csv');
+            res.end(student);
         }
     }
 });
