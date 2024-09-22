@@ -2,14 +2,8 @@ const { readDatabase } = require('../utils');
 
 class StudentsController {
     static async getAllStudents(req, res) {
-        try {
-            const students = await readDatabase();
-            
+            const students = await readDatabase('database.csv');
             res.status(200).send(students);
-
-        } catch (error) {
-            res.status(500).send('Cannot load the database');
-        }
     }
 }
 
