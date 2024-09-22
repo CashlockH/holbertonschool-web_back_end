@@ -26,7 +26,7 @@ class StudentsController {
                     name_list.push(line[index].split('List: ')[1])
             }
 
-            let response = `List: ${name_list[0]}\n`
+            let response = `List: ${name_list[0]}`
             res.status(200).send(response);
         } catch (error) {
             res.status(500).send('Cannot load the database');
