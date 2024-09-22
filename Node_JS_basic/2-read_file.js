@@ -3,7 +3,7 @@ function countStudents(path) {
     try {
         const data = fs.readFileSync(path, 'utf8');
         const lines = data.split('\n');
-        console.log(`Number of students: ${lines.length}`);
+        console.log(`Number of students: ${lines.length - 1}`);
         let cs_count = 0
         let cs_list = []
         let swe_count = 0
